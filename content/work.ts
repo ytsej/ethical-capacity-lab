@@ -1,0 +1,38 @@
+import type { ContentStatus } from "./site";
+
+export const workItems = [
+  {
+    slug: "five-dollar-impact-hack",
+    title: "The $5 Impact Hack",
+    status: "current" as ContentStatus,
+    displayStatus: "Pilot",
+    problem: "Create a safe, bounded way for builders to turn a very small experiment fund into honest proof and learning.",
+    context: "DoGoodie’s first active mini-challenge uses a published seven-day process, clear eligibility, and explicit safeguards.",
+    scope: "Program design, public rules, application timeline, proof requirements, and consent-aware publication process.",
+    contributors: "DoGoodie program team; participant identities are not published without permission.",
+    output: "A public program page, rubric, timeline, standards, and proof-of-work structure.",
+    result: "The program is in progress. No completion outcome or participant result is claimed.",
+    evidence: "Published program configuration and route.",
+    limitations: "No winner, participant result, impact metric, or completion count is available yet.",
+    unproven: "Whether the model produces durable impact or future collaboration remains unproven.",
+    consent: "Organization-authored program information is public; participant work awaits separate review and permission.",
+    href: "/impact-hack",
+  },
+  {
+    slug: "ecosystem-architecture",
+    title: "Ethical Capacity Lab ecosystem architecture",
+    status: "current" as ContentStatus,
+    displayStatus: "In review",
+    problem: "Explain governance, practical delivery, and relationship pathways without collapsing them into one promise or funnel.",
+    context: "The approved research and architecture deliverables define distinct audiences, trust checkpoints, and branch boundaries.",
+    scope: "Research synthesis, information architecture, audience routes, safeguards, and responsive public implementation.",
+    contributors: "Skyler (vision), Destine (product and operations), and John Mark (project ownership and execution).",
+    output: "The semantic architecture, value-flow, resource, and journey components in this website.",
+    result: "A complete public explanation and route system. This is implementation evidence, not proof of social impact.",
+    evidence: "Approved Deliverables 1–6 and the website implementation derived from them.",
+    limitations: "Governance remains early-stage; legal review, live submission credentials, and real-world operating evidence are still required.",
+    unproven: "Scale, mature governance, and ecosystem outcomes are not claimed.",
+    consent: "Only approved role names and public-facing project information are used.",
+    href: "/ecosystem",
+  },
+] as const;

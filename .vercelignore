@@ -1,0 +1,24 @@
+.data/
+.data-test/
+.env.local
+.env.*.local
+.next/
+.next-test/
+.vercel/
+artifacts/
+review-artifacts/
+supabase/
+test-results/
+playwright-report/
+coverage/
+node_modules/
+server*.log
+message.txt
+*.tsbuildinfo
+CODEX_MASTER_PROMPT_ECL_WEBSITE.md
+Deliverable 3a - Ecosystem Architecture (Detailed Working Artifact).html
+Liberation_Ecosystem_Audience_and_Trust_Map.docx
+Liberation_Ecosystem_Benchmark_Research_Final.docx
+Liberation_Ecosystem_Deliverables_4_5_Final.docx
+Liberation_Ecosystem_Deliverable_6_User_Journey_Diagrams.docx
+image(297).png

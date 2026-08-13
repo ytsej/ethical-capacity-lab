@@ -1,0 +1,32 @@
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JourneyFlow } from "@/components/JourneyFlow";
+import { Notice } from "@/components/Notices";
+import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
+import { projectTermChecklist } from "@/content/builder-pathways";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata("Ethical Work & Collaboration", "Power, labor, compensation, ownership, supervision, consent, feedback, closure, and accountability in DoGoodie work.", "/ethical-work");
+
+const principles = ["Scope before work", "Fair and explicit compensation status", "No deceptive employment promise", "Consent and data minimization", "Ownership and attribution in writing", "Human supervision and accountable decisions", "Useful feedback and acceptance criteria", "Concern reporting and safe exit"];
+const responsibilities = [
+  { title: "DoGoodie", text: "Review fit, define the process, protect builders, keep records proportionate, and avoid promising capacity that does not exist." },
+  { title: "Organization", text: "Provide an accountable contact, lawful objective, realistic access, timely feedback, and respect for scope, compensation, ownership, and consent." },
+  { title: "Builder", text: "Work honestly within scope, disclose limits and material tool use, protect data, raise risks, and document output without inflating impact." },
+  { title: "Project manager", text: "Coordinate access, checkpoints, decisions, feedback, risks, and closure; prevent scope drift and escalate concerns." },
+];
+
+export default function EthicalWorkPage() {
+  return <><Breadcrumbs items={[{ label: "Ethical Work" }]} /><PageHero eyebrow="Principles and safeguards" title="Useful work should not require hidden risk" intro="This model acknowledges wage differences, extractive outsourcing, power imbalance, unpaid speculative work, unclear employment signals, access barriers, and weak bargaining power." tone="ecl"><div className="button-row"><Link className="button" href="/organizations">Organization path</Link><Link className="button button-secondary" href="/builders">Builder path</Link></div></PageHero>
+    <Section eyebrow="Why this page exists" title="Ethics must shape the process, not decorate the footer"><p className="lede">A good mission does not excuse unclear compensation, unsafe clients, scope creep, weak supervision, privacy failures, or work used without consent.</p></Section>
+    <Section surface eyebrow="Risks acknowledged" title="Power and labor risks are real"><div className="card-grid">{["Wage and bargaining differences", "Extractive outsourcing", "Unpaid speculative work", "Deceptive employment signals", "Equipment and access gaps", "Scope, ownership, and feedback ambiguity"].map((risk) => <article className="card" key={risk}><h3>{risk}</h3><p>The project plan must address this risk explicitly rather than assuming good intent solves it.</p></article>)}</div></Section>
+    <Section eyebrow="Core principles" title="Shared expectations before participation"><ul className="list-check">{principles.map((item) => <li key={item}>{item}</li>)}</ul></Section>
+    <Section surface eyebrow="Supervised collaboration" title="A human-reviewed path from need to closure"><JourneyFlow title="Supervised collaboration pathway" steps={[{ title: "Organization review", text: "Check fit, ownership, risk, and responsible contact.", kind: "action" }, { title: "Clarify scope", text: "Define output, access, timeline, budget, and evidence." }, { title: "Review builder fit", text: "Confirm capability, capacity, protections, and choice.", kind: "action" }, { title: "Written terms", text: "Agree on the full project-term checklist." }, { title: "Supervised work", text: "Use checkpoints, feedback, and risk escalation." }, { title: "Acceptance and closure", text: "Document output, result, limits, ownership, and next step.", kind: "outcome" }]} /></Section>
+    <Section eyebrow="Responsibilities" title="Accountability has named sides"><div className="card-grid two">{responsibilities.map((item) => <article className="card" key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></Section>
+    <Section surface eyebrow="Project terms and closure" title="Every productive project defines these separately"><ul className="list-check">{projectTermChecklist.map((item) => <li key={item}>{item}</li>)}</ul></Section>
+    <Section eyebrow="Feedback, attribution, confidentiality, consent, and exit" title="Protection continues through closure"><div className="card-grid"><article className="card"><h3>Feedback</h3><p>Review points and meaningful feedback are agreed before work; silence is not an acceptance process.</p></article><article className="card"><h3>Attribution and confidentiality</h3><p>Public credit, aliases, private access, and reuse require explicit terms and permission.</p></article><article className="card"><h3>Safe exit</h3><p>A participant can raise risk, pause, or leave through a defined path without retaliation.</p></article></div></Section>
+    <Section surface eyebrow="Concern and escalation" title="A separate route for treatment, conduct, and privacy concerns"><Notice title="Human accountability" tone="warning"><p>The concern route is not emergency response and does not promise confidentiality or a specific outcome. It does provide a distinct intake, non-retaliation commitment, and review target.</p></Notice><div className="button-row"><Link className="button" href="/report-a-concern">Report a concern</Link><Link className="button button-secondary" href="/community-standards">Community Standards</Link></div></Section>
+    <Section eyebrow="What the model is not" title="No implied legal or employment status"><ul className="list-boundary list-check"><li>DoGoodie is not an employer of record, staffing agency, legal representative, certifier, or regulator.</li><li>A pilot is not automatically employment, continuing work, or a route to Network membership.</li><li>Not every project is paid or available; any non-compensated educational activity must be explicit and voluntary.</li><li>This public framework does not make employment-law conclusions or replace project-specific legal review.</li></ul><div className="button-row"><Link className="button button-secondary" href="/work">Review current work</Link><Link className="text-link" href="/builders#opportunities">See builder opportunities</Link></div></Section>
+  </>;
+}

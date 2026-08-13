@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">The Ethical Capacity Lab</title>
+  <desc id="desc">Build the capacity behind meaningful work.</desc>
+  <rect width="1200" height="630" fill="#F6F1E7"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#FFFDF8" stroke="#C9C2B0" stroke-width="2"/>
+  <rect x="110" y="110" width="120" height="88" rx="8" fill="#2A2823"/>
+  <text x="170" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#FFFDF8">ECL</text>
+  <text x="110" y="275" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#A9762F" letter-spacing="3">THE ETHICAL CAPACITY LAB</text>
+  <text x="110" y="365" font-family="Georgia, serif" font-size="58" font-weight="600" fill="#2A2823">Build the capacity behind</text>
+  <text x="110" y="435" font-family="Georgia, serif" font-size="58" font-weight="600" fill="#2A2823">meaningful work.</text>
+  <rect x="110" y="505" width="310" height="8" fill="#A9762F"/>
+  <rect x="420" y="505" width="310" height="8" fill="#33506B"/>
+  <rect x="730" y="505" width="310" height="8" fill="#4B5D3E"/>
+</svg>
