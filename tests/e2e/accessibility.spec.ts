@@ -53,7 +53,7 @@ for (const form of [
 test("reduced motion preference keeps content available", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/ecosystem");
-  await expect(page.getByRole("heading", { name: "One front door, three distinct parts" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "One website, three distinct parts" })).toBeVisible();
 });
 
 for (const route of ["/", "/organizations", "/challenges", "/contact"]) {

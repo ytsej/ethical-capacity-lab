@@ -1,15 +1,15 @@
 export type NavigationLink = { label: string; href: string; description?: string };
 
 export const ecosystemMenu: NavigationLink[] = [
-  { label: "Ecosystem Overview", href: "/ecosystem", description: "How the three parts connect" },
-  { label: "Ethical Capacity Lab", href: "/about", description: "Governance and methodology" },
-  { label: "DoGoodie", href: "/ecosystem#dogoodie", description: "The practical arm" },
+  { label: "How the Parts Connect", href: "/ecosystem", description: "How the three parts work together" },
+  { label: "Ethical Capacity Lab", href: "/about", description: "How ECL makes decisions" },
+  { label: "DoGoodie", href: "/ecosystem#dogoodie", description: "Practical work for organizations" },
   { label: "Liberation Network", href: "/liberation", description: "Relationships and gradual trust" },
-  { label: "Principles and Safeguards", href: "/ethical-work", description: "How productive work is protected" },
+  { label: "Working Responsibly", href: "/ethical-work", description: "How we protect people and their work" },
 ];
 
 export const workMenu: NavigationLink[] = [
-  { label: "Work and Case Studies", href: "/work", description: "Evidence, artifacts, and limitations" },
+  { label: "Work and Case Studies", href: "/work", description: "What we made, learned, and still do not know" },
   { label: "Partnerships and Resources", href: "/partners", description: "Propose a responsible collaboration" },
 ];
 
@@ -26,8 +26,8 @@ export const footerGroups = [
   {
     title: "Ecosystem",
     links: [
-      { label: "About & Governance", href: "/about" },
-      { label: "Ecosystem Overview", href: "/ecosystem" },
+      { label: "About ECL", href: "/about" },
+      { label: "How the Parts Connect", href: "/ecosystem" },
       { label: "DoGoodie", href: "/ecosystem#dogoodie" },
       { label: "Liberation Network", href: "/liberation" },
       { label: "Team", href: "/about#team" },
@@ -45,9 +45,9 @@ export const footerGroups = [
     ],
   },
   {
-    title: "Trust & Governance",
+    title: "Trust & Safety",
     links: [
-      { label: "Ethical Work", href: "/ethical-work" },
+      { label: "Working Responsibly", href: "/ethical-work" },
       { label: "Community Standards", href: "/community-standards" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
@@ -77,8 +77,8 @@ export const startPaths = [
   },
   {
     title: "I want to build or contribute",
-    description: "Explore ways to contribute skills through clearly scoped and responsibly managed work.",
-    cta: "Explore builder pathways",
+    description: "Explore ways to contribute skills through clearly defined and responsibly managed work.",
+    cta: "Explore ways to contribute",
     href: "/builders",
     tone: "dogoodie",
   },

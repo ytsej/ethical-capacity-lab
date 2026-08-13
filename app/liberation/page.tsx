@@ -20,13 +20,13 @@ export default function LiberationPage() {
     <Section id="who-it-may-serve" surface="warm" tight eyebrow="Who it may be useful for" title="People who want to build trust gradually">
       <p className="lede">The Network may be useful for people who care about reducing suffering and are comfortable with clear consent, boundaries, and voluntary exchange. No political or moral identity test is required.</p>
     </Section>
-    <Section id="contribute-and-receive" surface="default" eyebrow="What people may offer or receive" title="Possibilities, not benefits owed">
+    <Section id="contribute-and-receive" surface="default" eyebrow="What people may offer or receive" title="Possibilities, not promised benefits">
       <div className="exchange-statement"><p>People may sometimes offer or receive advice, introductions, skills, professional resources, referrals, purchases, collaboration, or other voluntary support.</p><strong>None of these outcomes is guaranteed, required, or owed.</strong></div>
     </Section>
     <Section surface="liberation" id="trust" eyebrow="How trust develops" title="Take one small step at a time">
       <ol className="simple-steps">{networkTrustSteps.map((step, index) => <li key={step}><span aria-hidden="true">{index + 1}</span><p>{step}</p></li>)}</ol><p className="section-footnote">This is not a ranking system or automatic ladder.</p>
     </Section>
-    <Section surface="default" tight id="relationship-to-dogoodie" eyebrow="Relationship to DoGoodie" title="Connected possibilities, separate decisions">
+    <Section surface="default" tight id="relationship-to-dogoodie" eyebrow="Relationship to DoGoodie" title="Connected possibilities, but separate decisions">
       <p className="measure">The Network may sometimes lead to introductions or collaborations connected to DoGoodie, but the two are separate. Network participation does not guarantee project access, paid work, clients, or other material benefits.</p>
     </Section>
     <Section surface="default" eyebrow="What is not guaranteed" title="Clear boundaries protect relationships">

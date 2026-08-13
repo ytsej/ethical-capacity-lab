@@ -18,18 +18,18 @@ export const metadata = pageMetadata(
 
 const firstEngagementSteps = [
   "You tell us the challenge.",
-  "We review whether it fits our current capacity.",
+  "We review whether we have the right people and time to help.",
   "We may ask a few clarifying questions.",
   "When useful, we have a short introductory conversation.",
   "We recommend a next step.",
-  "Before productive work begins, scope and terms are written down.",
+  "Before work begins, we write down what is included and the terms.",
 ] as const;
 
 const organizationNeeds = [
   "A real problem or question",
   "One responsible contact",
   "Enough context to understand the request",
-  "Willingness to clarify scope and give timely feedback",
+  "Willingness to agree on what the work includes and give timely feedback",
   "Respect for builder and project protections",
   "No sensitive credentials or unnecessary confidential information in the first submission",
 ] as const;
@@ -41,7 +41,7 @@ export default function OrganizationsPage() {
       <PageHero
         eyebrow="For organizations"
         title="Bring us a real problem. We will help clarify the next useful step."
-        intro="DoGoodie works on carefully scoped research, websites and digital tools, workflow improvements, automation, and small practical tests. Every request is reviewed for fit and current capacity."
+        intro="DoGoodie works on clearly defined research, websites and digital tools, workflow improvements, automation, and small practical tests. Every request is reviewed to see whether it is suitable and whether we have the right people and time."
         tone="ecl"
         context="dogoodie"
         compact
@@ -76,7 +76,7 @@ export default function OrganizationsPage() {
         </ol>
         <div className="outcome-strip" aria-label="Possible review outcomes">
           <strong>Possible outcomes</strong>
-          <ul>{["Proceed", "Smaller pilot", "Referral", "Hold", "Decline", "No further action"].map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
+          <ul>{["Proceed", "Smaller test", "Referral", "Hold", "Decline", "No further action"].map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
         </div>
         <p className="process-boundary">A first conversation is for clarification and fit. It is not open-ended free consulting or a promise of future work.</p>
       </Section>
@@ -96,12 +96,12 @@ export default function OrganizationsPage() {
         <div className="responsible-work-grid">
           <div>
             <h3>Terms before productive work</h3>
-            <p>Before productive work begins, we clarify scope, responsibilities, compensation when relevant, ownership, access, confidentiality, review points, and how the work ends.</p>
-            <Link className="text-link" href="/ethical-work">Read our ethical-work approach <span aria-hidden="true">→</span></Link>
+            <p>Before work begins, we agree on what is included, responsibilities, pay when relevant, ownership, access, privacy, review points, and how the work ends.</p>
+            <Link className="text-link" href="/ethical-work">Read how we work responsibly <span aria-hidden="true">→</span></Link>
           </div>
           <div>
             <h3>A small first piece of help</h3>
-            <p>In some cases, we may choose to offer a small, clearly bounded first piece of help when it is useful for both sides and fits current capacity.</p>
+            <p>In some cases, we may offer a small and clearly limited first piece of help when it is useful for both sides and we have enough time and support.</p>
             <ul className="compact-rule-list">{giveFirstModel.slice(0, 5).map((item) => <li key={item}>{item}</li>)}</ul>
             <p className="section-footnote">There is no automatic continuation.</p>
           </div>
@@ -111,8 +111,8 @@ export default function OrganizationsPage() {
       <Section surface="default" eyebrow="Real work, honest status" title="Current evidence">
         <div className="organization-proof-grid">
           {workItems.map((item) => (
-            <article key={item.slug}>
-              <StatusPill label={item.slug === "ecosystem-architecture" ? "Published framework" : "Current program"} tone={item.slug === "ecosystem-architecture" ? "limited" : "info"} />
+            <article className="card-with-action" key={item.slug}>
+              <StatusPill label={item.slug === "ecosystem-architecture" ? "Published guide" : "Current program"} tone={item.slug === "ecosystem-architecture" ? "limited" : "info"} />
               <h3>{item.title}</h3>
               <p>{item.output}</p>
               <p className="section-footnote">{item.limitations}</p>
@@ -120,7 +120,7 @@ export default function OrganizationsPage() {
             </article>
           ))}
         </div>
-        <p className="empty-evidence">Verified client work will be added only after review and publication consent.</p>
+        <p className="empty-evidence">Reviewed client work will be added only after the client gives permission to publish it.</p>
       </Section>
 
       <Section surface="warm" tight eyebrow="Next step" title="Tell us what you are trying to solve">

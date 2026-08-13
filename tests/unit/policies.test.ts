@@ -15,9 +15,18 @@ describe("production policies", () => {
     const privacy = JSON.stringify(privacySections);
     expect(privacy).toContain("Vercel");
     expect(privacy).toContain("Formspree");
-    expect(privacy).toContain("Google Analytics 4");
+    expect(privacy).toContain("Google Analytics");
     expect(privacy).toContain("does not maintain its own submissions database");
     expect(privacy).not.toContain("Supabase");
     expect(privacy).not.toContain("Resend");
+  });
+
+  it("uses plain-language public cookie descriptions without implementation identifiers", () => {
+    const cookies = JSON.stringify(cookieSections);
+    expect(cookies).toContain("Google Analytics");
+    expect(cookies).toContain("up to two years");
+    expect(cookies).not.toContain("ecl_consent_v1");
+    expect(cookies).not.toContain("_ga");
+    expect(cookies).not.toContain("Google Analytics 4");
   });
 });

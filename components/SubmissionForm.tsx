@@ -85,7 +85,7 @@ export function SubmissionForm({ type, submissionAvailable }: { type: Submission
           {group.fields.map((name) => renderField(config.fields.find((field) => field.name === name)!))}
         </fieldset>
       )) : config.fields.map(renderField)}
-      <div className="form-submit"><p>By submitting, you confirm the information is accurate and may be reviewed for this pathway. Read the <Link href="/privacy">Privacy Policy</Link>.</p><button className="button" type="submit" disabled={status === "loading"}>{status === "loading" ? "Submitting…" : config.submitLabel}</button></div>
+      <div className="form-submit"><p>By submitting, you confirm the information is accurate and may be reviewed for the option you chose. Read the <Link href="/privacy">Privacy Policy</Link>.</p><button className="button" type="submit" disabled={status === "loading"}>{status === "loading" ? "Submitting…" : config.submitLabel}</button></div>
     </form>
   );
 }

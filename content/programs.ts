@@ -20,10 +20,10 @@ export const impactHack = {
   applicationUrl: "https://forms.gle/kg1XqgdgRMzj1HuG9",
   submissionUrl: "https://forms.gle/T75zfcjeBbsLyMp7A",
   experimentFund: "$5 per approved participant",
-  capacity: "Up to 200 approved participants",
+  capacity: "Up to 200 approved people",
   totalFunding: "Up to $1,000 in experiment funds",
   grandPrize: "$250 Grand Prize",
-  eligibility: "Global, age 18+, individual entries only—subject to legal, payment-platform, safety, and operational feasibility",
+  eligibility: "Open worldwide to individuals age 18 and older, subject to legal, payment-service, safety, and practical limits",
 } as const;
 
 export function getProgramStatus(now = new Date()): ProgramStatus {

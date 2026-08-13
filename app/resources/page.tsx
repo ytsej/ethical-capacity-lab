@@ -6,7 +6,7 @@ import { Section } from "@/components/Section";
 import { faqs, resourceCategories, resources } from "@/content/resources";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata("Resources", "Public guides about organization support, builder participation, ethical work, the Liberation Network, and the Ethical Capacity Lab ecosystem.", "/resources");
+export const metadata = pageMetadata("Resources", "Public guides about organization support, ways for builders to contribute, responsible work, the Liberation Network, and how the three parts connect.", "/resources");
 
 export default function ResourcesPage() {
   return <>

@@ -55,8 +55,8 @@ describe("submission validation", () => {
     expect(fields).toHaveLength(10);
     expect(fields.map((field) => field.name)).not.toContain("referrer");
     const payload = complete("liberation_interest");
-    payload.interest_or_referral = "A referral made with permission";
-    expect(validateSubmission("liberation_interest", payload)).toMatchObject({ valid: true, data: { interest_or_referral: "A referral made with permission" } });
+    payload.interest_or_referral = "An introduction made with permission";
+    expect(validateSubmission("liberation_interest", payload)).toMatchObject({ valid: true, data: { interest_or_referral: "An introduction made with permission" } });
   });
 
   it("defaults partnership public display permission to no and keeps organization optional", () => {

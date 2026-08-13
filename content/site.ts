@@ -12,16 +12,16 @@ export const site = {
 } as const;
 
 export const currentStage =
-  "We are building and testing this ecosystem through a small number of real projects, trusted relationships, and carefully scoped collaborations. These pages explain the model and available pathways without claiming global scale, guaranteed opportunities, or a mature member platform.";
+  "We are building and testing this model through a small number of real projects, trusted relationships, and clearly defined collaborations. These pages explain how it works and the available ways to take part. We do not claim global scale, guaranteed opportunities, or a fully developed member platform.";
 
 export const generalBoundary =
   "Submitting interest or a request does not guarantee acceptance, work, payment, partnership, referrals, membership, confidential access, or any other outcome. A human reviewer considers the information provided and identifies the most appropriate available next step.";
 
 export const separateDecisions =
-  "DoGoodie services, builder pathways, paid work, confidential project access, Liberation Network participation, partnerships, and public learning are separate decisions. Participation in one area does not automatically create access or entitlement in another.";
+  "DoGoodie services, ways for builders to contribute, paid work, access to private projects, Liberation Network participation, partnerships, and public learning are separate decisions. Taking part in one area does not automatically give access or a right to another.";
 
 export const branchRelationship =
-  "Possible introductions, relationships, scoped collaborations, and opportunities may move between DoGoodie and the Liberation Network. Collaboration is possible but not automatic. Builder status, paid project work, confidential access, and Liberation Network participation remain separate decisions.";
+  "Possible introductions, relationships, clearly defined collaborations, and opportunities may connect DoGoodie and the Liberation Network. Collaboration is possible but not automatic. Builder status, paid project work, access to private information, and Liberation Network participation remain separate decisions.";
 
 export const team = [
   { name: "Skyler", role: "Vision and final direction", detail: "Guides the ecosystem’s public vision and final strategic direction." },
@@ -32,20 +32,20 @@ export const team = [
 export const supportSystems = [
   "Organizers and project managers",
   "Builders and specialists",
-  "Reviewers and safeguards",
+  "Reviewers and protections",
   "Partners and resource providers",
   "Systems and documentation",
-  "Relationships and community infrastructure",
+  "Relationships and community support",
   "Public learning and communication",
 ] as const;
 
 export const commitments = [
-  "Scope before productive work",
-  "Compensation or educational status made explicit",
+  "Agree on the work before it begins",
+  "State clearly whether and how the work is paid",
   "Consent, privacy, and publication permission",
-  "Human review for consequential decisions",
+  "A person reviews important decisions",
   "Lawful, safe, and ethical work",
-  "Proof and limitations over exaggerated claims",
+  "Honest results and limits instead of exaggerated claims",
   "No automatic employment, membership, or access",
 ] as const;
 

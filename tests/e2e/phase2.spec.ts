@@ -12,15 +12,15 @@ test("Start Here presents five concise routes, the QR entry, and no form", async
   await expect(page.locator(".submission-form")).toHaveCount(0);
 });
 
-test("Builders presents scoped work, honest opportunities, and a short form", async ({ page }) => {
+test("Builders presents clearly defined work, honest opportunities, and a short form", async ({ page }) => {
   await page.goto("/builders");
-  await expect(page.getByRole("heading", { name: "Use your skills on real, clearly scoped work." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Use your skills on real, clearly defined work." })).toBeVisible();
   await expect(page.getByRole("link", { name: "Express interest" })).toHaveAttribute("href", "#expression-of-interest");
   await expect(page.getByRole("link", { name: "See current opportunities" })).toHaveAttribute("href", "#opportunities");
   await expect(page.locator(".phase2-topic")).toHaveCount(6);
   await expect(page.locator(".participation-options article")).toHaveCount(3);
   await expect(page.getByText("not a job application", { exact: false }).first()).toBeVisible();
-  await expect(page.getByLabel("Portfolio or proof link (optional)")).not.toHaveAttribute("required", "");
+  await expect(page.getByLabel("Portfolio or work-example link (optional)")).not.toHaveAttribute("required", "");
   await expect(page.locator(".submission-form .form-field")).toHaveCount(11);
 });
 
@@ -59,8 +59,18 @@ test("Resources groups guides and gives every disclosure a descriptive name", as
   for (const summary of await page.locator(".resource-card summary").all()) {
     await expect(summary).toHaveAttribute("aria-label", /^Open “.+”$/);
   }
-  await page.locator('summary[aria-label="Open “How to prepare builder interest”"]').click();
-  await expect(page.getByText("Choose your primary skills.", { exact: true })).toBeVisible();
+  const firstCard = await page.locator(".resource-card").nth(0).boundingBox();
+  const secondCard = await page.locator(".resource-card").nth(1).boundingBox();
+  const firstAction = await page.locator(".resource-card summary").nth(0).boundingBox();
+  const secondAction = await page.locator(".resource-card summary").nth(1).boundingBox();
+  expect(firstCard).not.toBeNull();
+  expect(secondCard).not.toBeNull();
+  expect(firstAction).not.toBeNull();
+  expect(secondAction).not.toBeNull();
+  expect(Math.abs(firstAction!.y - secondAction!.y)).toBeLessThanOrEqual(1);
+  expect(firstCard!.y + firstCard!.height - (firstAction!.y + firstAction!.height)).toBeLessThan(30);
+  await page.locator('summary[aria-label="Open “How to share your interest as a builder”"]').click();
+  await expect(page.getByText("Choose your main skills.", { exact: true })).toBeVisible();
 });
 
 async function fillBuilder(page: Page, email: string) {
@@ -78,7 +88,7 @@ async function fillNetwork(page: Page, email: string) {
   await page.getByLabel("Name or alias (required)").fill("Network Tester");
   await page.getByLabel("Email (required)").fill(email);
   await page.getByLabel("How did you hear about the Network? (required)").fill("Through the public resource library");
-  await page.getByLabel("Are you expressing your own interest or referring someone? (required)").selectOption("My own expression of interest");
+  await page.getByLabel("Are you sharing your own interest or introducing someone else? (required)").selectOption("My own interest");
   await page.getByLabel("What interests you about the Network? (required)").fill("Useful conversations, public learning, and gradual collaboration.");
   await page.getByLabel("What would you prefer as a next step? (required)").selectOption("Keep learning through public resources");
   await page.getByLabel(/does not create membership/).check();

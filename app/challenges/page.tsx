@@ -9,7 +9,7 @@ import { responseTimes } from "@/content/response-times";
 import { isFormspreeConfigured } from "@/lib/submissions/formspree";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata("Describe Your Challenge", "A short, data-minimized DoGoodie request for an organizational challenge, with a separate Operations Hub consultation pathway.", "/challenges");
+export const metadata = pageMetadata("Describe Your Challenge", "A short DoGoodie request form that asks only for needed information, with a separate Operations Hub option for consultations.", "/challenges");
 
 export default function ChallengesPage() {
   const submissionAvailable = isFormspreeConfigured("challenge");
@@ -29,7 +29,7 @@ export default function ChallengesPage() {
         <div className="challenge-fit-grid">
           <div>
             <h3>This route may fit if you have</h3>
-            <ul className="list-check"><li>A real organizational problem, project, workflow, or idea</li><li>One responsible contact</li><li>A useful outcome you can describe</li><li>Willingness to clarify scope before work begins</li></ul>
+            <ul className="list-check"><li>A real organizational problem, project, workflow, or idea</li><li>One responsible contact</li><li>A useful result you can describe</li><li>Willingness to agree on what the work includes before it begins</li></ul>
           </div>
           <Notice title="Keep sensitive material out" tone="warning"><p>Do not include passwords, private keys, financial-account information, protected health information, private legal files, confidential client records, or anything you are not authorized to share. No file uploads are accepted.</p></Notice>
         </div>
@@ -40,7 +40,7 @@ export default function ChallengesPage() {
       </Section>
 
       <Section tight eyebrow="Prefer a conversation?" title="Request a 30-minute consultation through the Operations Hub">
-        <p className="measure">The Operations Hub handles consultation requests and records the information needed for that pathway. It is separate from this Formspree challenge form.</p>
+        <p className="measure">The Operations Hub handles consultation requests and records the information needed for them. It is separate from this Formspree challenge form.</p>
         <OrganizationCallActions secondaryLabel="Return to organization support" secondaryHref="/organizations" />
       </Section>
 

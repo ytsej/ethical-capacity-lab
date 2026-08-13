@@ -59,7 +59,7 @@ export default function HomePage() {
             <p className="eyebrow">The Ethical Capacity Lab</p>
             <h1>Turning good intentions into useful, responsible action.</h1>
             <p className="lede">
-              The Ethical Capacity Lab brings together practical project support through DoGoodie and trusted relationship-building through the Liberation from Suffering Network, guided by shared standards and safeguards.
+              The Ethical Capacity Lab brings together practical project support through DoGoodie and trusted relationship-building through the Liberation from Suffering Network, guided by shared standards and protections.
             </p>
             <p className="hero-follow-up">
               Organizations can get practical help, builders can contribute their skills, and values-aligned people can learn, connect, and explore collaboration over time.
@@ -74,11 +74,11 @@ export default function HomePage() {
             <div className="ecosystem-hero-foundation">
               <span>Shared foundation</span>
               <h2>The Ethical Capacity Lab</h2>
-              <p>Shared standards and safeguards</p>
+              <p>Shared standards and protections</p>
             </div>
             <div className="ecosystem-hero-branches">
               <article className="tone-dogoodie">
-                <span>Practical arm</span>
+                <span>Practical work</span>
                 <h3>DoGoodie</h3>
                 <p>Practical work and organizational support</p>
               </article>
@@ -101,7 +101,7 @@ export default function HomePage() {
         intro="Start with the problem you have. These four groups show the kinds of work and outputs DoGoodie can responsibly explore with an organization."
       >
         <ServiceGroups />
-        <p className="section-footnote">Every request is reviewed for fit, safety, scope, and current capacity. A service group does not guarantee acceptance or a particular outcome.</p>
+        <p className="section-footnote">Every request is reviewed for suitability, safety, what the work would include, and whether the right people and time are available. A service group does not guarantee acceptance or a particular result.</p>
       </Section>
 
       <Section className="homepage-challenge" surface="default" context="dogoodie" tight eyebrow="For organizations" title="Have a specific challenge?">
@@ -174,7 +174,7 @@ export default function HomePage() {
               <article key={commitment.title}><h3>{commitment.title}</h3><p>{commitment.text}</p></article>
             ))}
           </div>
-          <nav className="trust-links" aria-label="Trust and safeguard pages">
+          <nav className="trust-links" aria-label="Trust and safety pages">
             {homepageTrustLinks.map((link) => (
               <Link key={link.href} href={link.href}>{link.label} <span aria-hidden="true">→</span></Link>
             ))}
@@ -194,9 +194,9 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <p className="empty-evidence">Verified client work will be added after review and publication consent.</p>
+        <p className="empty-evidence">Reviewed client work will be added after the client gives permission to publish it.</p>
         <div className="stage-statement stage-statement-compact">
-          <p>We are building this ecosystem through a small number of real projects and carefully scoped collaborations. We do not claim global scale, guaranteed opportunities, or a mature member platform.</p>
+          <p>We are building this model through a small number of real projects and clearly defined collaborations. We do not claim global scale, guaranteed opportunities, or a fully developed member platform.</p>
         </div>
         <div className="button-row"><Link className="button button-secondary" href="/work">View work and case studies</Link></div>
       </Section>

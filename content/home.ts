@@ -2,8 +2,8 @@ export const homepageEcosystemParts = [
   {
     id: "ethical-capacity-lab",
     title: "The Ethical Capacity Lab",
-    label: "Shared standards and safeguards",
-    description: "The parent organization that provides shared standards, safeguards, research practices, and direction.",
+    label: "Shared standards and protections",
+    description: "The parent organization that provides shared standards, protections for people and their work, research practices, and direction.",
     cta: "About the Lab",
     href: "/about",
     tone: "ecl",
@@ -12,7 +12,7 @@ export const homepageEcosystemParts = [
     id: "dogoodie",
     title: "DoGoodie",
     label: "Practical projects and organizational support",
-    description: "The practical arm that helps organizations clarify problems and deliver carefully scoped work.",
+    description: "The practical part that helps organizations understand problems and complete clearly defined work.",
     cta: "Explore DoGoodie",
     href: "/organizations",
     tone: "dogoodie",
@@ -38,8 +38,8 @@ export const homepageAudiencePaths = [
   },
   {
     title: "I want to build or contribute",
-    description: "Explore responsible project and contribution pathways.",
-    cta: "Explore builder opportunities",
+    description: "Explore responsible projects and ways to contribute.",
+    cta: "Explore ways to contribute",
     href: "/builders",
     tone: "dogoodie",
   },
@@ -77,18 +77,18 @@ export const homepageClientSteps = [
   },
   {
     title: "Agree on a clear next step",
-    text: "When appropriate, this may be a conversation, research task, small project, tool, pilot, referral, or no further action.",
+    text: "When appropriate, this may be a conversation, research task, small project, tool, small test, referral, or no further action.",
   },
 ] as const;
 
 export const homepageTrustCommitments = [
   {
     title: "Clear expectations",
-    text: "Productive work should have a clear scope, responsible owner, timeline, terms, and completion point.",
+    text: "Productive work should clearly state what is included, who is responsible, the timeline, the terms, and when the work ends.",
   },
   {
     title: "Human judgment",
-    text: "AI and automation may support the work, but important decisions about people, projects, participation, and safety remain human-reviewed.",
+    text: "AI and automation may support the work, but a person reviews important decisions about people, projects, participation, and safety.",
   },
   {
     title: "Honest evidence and consent",

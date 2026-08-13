@@ -16,7 +16,7 @@ export default function LiberationHowPage() {
 
   return <>
     <Breadcrumbs items={[{ label: "Liberation Network", href: "/liberation" }, { label: "How It Works" }]} />
-    <PageHero eyebrow="How the Network works" title="Start with a small, human next step." intro="You can learn publicly, express your own interest, or continue a referral. Every later step depends on consent, mutual interest, trust, and current capacity." tone="liberation" />
+    <PageHero eyebrow="How the Network works" title="Start with a small, human next step." intro="You can read the public information, share your own interest, or continue an introduction made with permission. Every later step depends on permission, shared interest, trust, and enough time and support." tone="liberation" />
     <Section surface="default" eyebrow="A simple participation journey" title="The process can pause at any point">
       <ol className="simple-steps">{networkTrustSteps.map((step, index) => <li key={step}><span aria-hidden="true">{index + 1}</span><p>{step}</p></li>)}</ol><p className="section-footnote">A referral adds context but does not guarantee a conversation or any later step.</p>
     </Section>
@@ -33,7 +33,7 @@ export default function LiberationHowPage() {
       <p className="measure">Use this form for your own interest or a referral made with permission. Please do not share another person’s private contact details unless you have their permission.</p><p>{responseTimes.liberation} {responseTimes.caveat}</p><SubmissionForm type="liberation_interest" submissionAvailable={submissionAvailable} />
     </Section>
     <Section surface="default" tight eyebrow="Questions and supporting links" title="Review before deciding">
-      <div className="faq-list"><details><summary>Does a conversation create membership?</summary><p>No. It is an introductory conversation, not membership or guaranteed access.</p></details><details><summary>Can a trusted referral guarantee acceptance?</summary><p>No. The person referred still chooses whether to proceed, and any next step depends on mutual fit and capacity.</p></details><details><summary>What if no next step fits?</summary><p>A resource, pause, or respectful close can be the appropriate result.</p></details></div><nav className="trust-links-light" aria-label="Network safeguards"><Link href="/community-standards">Community Standards</Link><Link href="/privacy">Privacy</Link><Link href="/report-a-concern">Report a Concern</Link></nav>
+      <div className="faq-list"><details><summary>Does a conversation create membership?</summary><p>No. It is an introductory conversation, not membership or guaranteed access.</p></details><details><summary>Can an introduction from someone trusted guarantee acceptance?</summary><p>No. The person introduced still chooses whether to continue, and every next step depends on shared interest and enough time and support.</p></details><details><summary>What if no next step fits?</summary><p>A resource, pause, or respectful close can be the appropriate result.</p></details></div><nav className="trust-links-light" aria-label="Network information and protections"><Link href="/community-standards">Community Standards</Link><Link href="/privacy">Privacy</Link><Link href="/report-a-concern">Report a Concern</Link></nav>
     </Section>
   </>;
 }

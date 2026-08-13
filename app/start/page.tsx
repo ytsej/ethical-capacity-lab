@@ -7,7 +7,7 @@ import { Section } from "@/components/Section";
 import { startPaths } from "@/content/navigation";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata("Start Here", "Choose the Ethical Capacity Lab pathway that best matches what brings you here.", "/start");
+export const metadata: Metadata = pageMetadata("Start Here", "Choose the Ethical Capacity Lab option that best matches what brings you here.", "/start");
 
 export default function StartPage() {
   return <>

@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Privacy Policy",
-  "How the Ethical Capacity Lab public website handles form submissions, infrastructure data, optional analytics, privacy choices, and external services.",
+  "How the Ethical Capacity Lab public website handles form submissions, limited technical data, optional analytics, privacy choices, and external services.",
   "/privacy",
 );
 

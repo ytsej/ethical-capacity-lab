@@ -5,7 +5,7 @@ test("desktop dropdown opens and Escape returns focus", async ({ page }) => {
   const trigger = page.getByRole("button", { name: "Our Ecosystem" });
   await trigger.focus();
   await trigger.press("Enter");
-  await expect(page.getByRole("link", { name: "Ecosystem Overview", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "How the Parts Connect", exact: true })).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(trigger).toBeFocused();
 });
