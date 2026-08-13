@@ -12,7 +12,7 @@ export const site = {
 } as const;
 
 export const currentStage =
-  "We are building and testing this ecosystem through a small number of real projects, trusted relationships, and carefully scoped collaborations. This public website explains the model and current pathways; it does not claim global scale, guaranteed opportunities, or a mature member platform.";
+  "We are building and testing this ecosystem through a small number of real projects, trusted relationships, and carefully scoped collaborations. These pages explain the model and available pathways without claiming global scale, guaranteed opportunities, or a mature member platform.";
 
 export const generalBoundary =
   "Submitting interest or a request does not guarantee acceptance, work, payment, partnership, referrals, membership, confidential access, or any other outcome. A human reviewer considers the information provided and identifies the most appropriate available next step.";
@@ -26,7 +26,7 @@ export const branchRelationship =
 export const team = [
   { name: "Skyler", role: "Vision and final direction", detail: "Guides the ecosystem’s public vision and final strategic direction." },
   { name: "Destine", role: "Product and operations", detail: "Connects product decisions, operating capacity, and responsible delivery." },
-  { name: "John Mark", role: "Project owner and executor", detail: "Owns website implementation, content structure, and launch-scope execution." },
+  { name: "John Mark", role: "Website and content operations", detail: "Builds and maintains the public website, content structure, and release quality." },
 ] as const;
 
 export const supportSystems = [

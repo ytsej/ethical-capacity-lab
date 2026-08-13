@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { trackPageView } from "@/lib/analytics";
 
 const STORAGE_KEY = "ecl_consent_v1";
@@ -90,6 +90,19 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   const [consent, setConsent] = useState<ConsentState>("loading");
   const [preferencesOpen, setPreferencesOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const manageButtonRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const shouldRestoreFocusRef = useRef(false);
+
+  const openPreferences = useCallback(() => {
+    returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setPreferencesOpen(true);
+  }, []);
+
+  const closePreferences = useCallback(() => {
+    shouldRestoreFocusRef.current = true;
+    setPreferencesOpen(false);
+  }, []);
 
   useEffect(() => {
     const stored = readConsent();
@@ -104,10 +117,9 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   }, [measurementId]);
 
   useEffect(() => {
-    const open = () => setPreferencesOpen(true);
-    window.addEventListener("ecl:open-cookie-settings", open);
-    return () => window.removeEventListener("ecl:open-cookie-settings", open);
-  }, []);
+    window.addEventListener("ecl:open-cookie-settings", openPreferences);
+    return () => window.removeEventListener("ecl:open-cookie-settings", openPreferences);
+  }, [openPreferences]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -116,11 +128,20 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
     if (!preferencesOpen && dialog.open) dialog.close();
   }, [preferencesOpen]);
 
+  useEffect(() => {
+    if (preferencesOpen || !shouldRestoreFocusRef.current) return;
+    shouldRestoreFocusRef.current = false;
+    const previousTrigger = returnFocusRef.current;
+    const focusTarget = previousTrigger?.isConnected ? previousTrigger : manageButtonRef.current;
+    focusTarget?.focus();
+    returnFocusRef.current = null;
+  }, [preferencesOpen, consent]);
+
   const choose = (choice: ConsentChoice) => {
     storeConsent(choice);
     updateGoogleConsent(choice);
     setConsent(choice);
-    setPreferencesOpen(false);
+    closePreferences();
     if (choice === "granted") {
       configureAnalytics(measurementId);
       trackPageView(window.location.pathname);
@@ -131,7 +152,7 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
 
   return (
     <>
-      {consent === "unset" && (
+      {consent === "unset" && !preferencesOpen && (
         <section className="consent-banner" aria-label="Analytics cookie choices">
           <div className="consent-banner-copy">
             <h2>Optional analytics</h2>
@@ -141,7 +162,7 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
           <div className="consent-actions">
             <button className="button consent-choice-button" type="button" onClick={() => choose("granted")}>Accept analytics</button>
             <button className="button consent-choice-button" type="button" onClick={() => choose("denied")}>Decline analytics</button>
-            <button className="consent-manage" type="button" onClick={() => setPreferencesOpen(true)}>Manage preferences</button>
+            <button className="consent-manage" ref={manageButtonRef} type="button" onClick={openPreferences}>Manage preferences</button>
           </div>
         </section>
       )}
@@ -153,13 +174,13 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
         aria-describedby="consent-dialog-description"
         onCancel={(event) => {
           event.preventDefault();
-          setPreferencesOpen(false);
+          closePreferences();
         }}
         onClose={() => setPreferencesOpen(false)}
       >
         <div className="consent-dialog-header">
           <h2 id="consent-dialog-title">Cookie preferences</h2>
-          <button className="dialog-close" type="button" aria-label="Close cookie preferences" onClick={() => setPreferencesOpen(false)}>×</button>
+          <button className="dialog-close" type="button" aria-label="Close cookie preferences" onClick={closePreferences}>×</button>
         </div>
         <p id="consent-dialog-description">Essential preference storage is always available. Analytics is optional and is loaded only after you accept it.</p>
         <div className="consent-preference-row">

@@ -16,7 +16,7 @@ export type Resource = {
 const shared = {
   owner: "The Ethical Capacity Lab",
   updated: "3 August 2026",
-  source: "Approved ECL Deliverables 1–6 and the public implementation brief",
+  source: "ECL research, ecosystem architecture, and published safeguards",
   limitations: "Educational information only; it is not clinical, legal, financial, therapeutic, or other regulated professional advice.",
 } as const;
 

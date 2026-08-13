@@ -112,7 +112,7 @@ export default function OrganizationsPage() {
         <div className="organization-proof-grid">
           {workItems.map((item) => (
             <article key={item.slug}>
-              <StatusPill label={item.slug === "ecosystem-architecture" ? "Internal build" : "Current program"} tone={item.slug === "ecosystem-architecture" ? "limited" : "info"} />
+              <StatusPill label={item.slug === "ecosystem-architecture" ? "Published framework" : "Current program"} tone={item.slug === "ecosystem-architecture" ? "limited" : "info"} />
               <h3>{item.title}</h3>
               <p>{item.output}</p>
               <p className="section-footnote">{item.limitations}</p>

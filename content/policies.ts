@@ -1,4 +1,5 @@
 export const policyUpdated = "13 August 2026";
+export const policyUpdatedIso = "2026-08-13";
 
 export const privacySections = [
   {
@@ -25,14 +26,14 @@ export const privacySections = [
   {
     title: "Forms, delivery, and the Operational Hub",
     body: [
-      "Form submissions are validated by this website and then sent to Formspree for delivery, spam controls, and storage under the configured ECL account. The website does not maintain its own submissions database. Concern reports use a separate Formspree endpoint from the ordinary inquiry forms.",
+      "Form submissions are validated by this website and then sent to ECL’s Formspree account for delivery, spam controls, and storage. The website does not maintain its own submissions database. Concern reports use a separate Formspree destination from ordinary inquiry forms.",
       "Requests for a 30-minute consultation continue to the separate Ethical Capacity Lab Operational Hub at hub.ethicalcapacitylab.org. The Hub handles that operational request through its own systems and may provide separate privacy terms. A submission is not made to the Hub merely by viewing or using this public website.",
     ],
   },
   {
     title: "Google Analytics 4",
     body: [
-      "When Google Analytics 4 is configured and you accept analytics, it helps ECL understand pages visited, general usage patterns, traffic sources, browser or device categories, approximate geographic information, and engagement with public resources and navigation. Analytics is optional and is not required to use the website.",
+      "When you accept analytics, Google Analytics 4 helps ECL understand pages visited, general usage patterns, traffic sources, browser or device categories, approximate geographic information, and engagement with public resources and navigation. Analytics is optional and is not required to use the website.",
       "Analytics is not used for applicant scoring, Network eligibility, employment decisions, sensitive profiling, personalized advertising, or automated decision-making. Advertising storage and advertising-personalization permissions remain denied. Names, email addresses, form values, free-text submissions, concern information, and sensitive query strings must not be sent as analytics event parameters.",
     ],
   },
@@ -46,15 +47,15 @@ export const privacySections = [
   {
     title: "Service providers and external destinations",
     body: [
-      "Vercel provides website hosting and delivery infrastructure. Formspree processes enabled public form submissions. Google Analytics processes consented analytics when it is configured. The Operational Hub, current program forms, and other linked destinations are separately operated services or external websites with their own terms and privacy practices.",
+      "Vercel provides website hosting and delivery infrastructure. Formspree processes enabled public form submissions. Google Analytics processes analytics after consent. The Operational Hub, current program forms, and other linked destinations are separately operated services or external websites with their own terms and privacy practices.",
       "ECL selects and configures services for the purposes described here but does not control unrelated external websites or every independent decision made by a third-party service.",
     ],
   },
   {
     title: "Retention",
     body: [
-      "The public website does not keep its own form-submission database. Formspree retention and deletion are governed by the configured account and operational needs. Infrastructure providers may retain limited logs according to their settings and legal obligations.",
-      "No exact GA4 retention period is claimed here until the production property setting has been confirmed. The team should use the minimum useful retention period and delete information when it is no longer reasonably needed, subject to safety, dispute, consent-history, and applicable legal requirements.",
+      "The public website does not keep its own form-submission database. Formspree retention and deletion are governed by ECL’s account settings and operational needs. Infrastructure providers may retain limited logs according to their settings and legal obligations.",
+      "Analytics retention follows the settings of ECL’s Google Analytics property. ECL aims to keep analytics and submitted information only as long as reasonably needed for the purposes described here, subject to safety, dispute, consent-history, service-provider, and applicable legal requirements.",
     ],
   },
   {
@@ -67,7 +68,7 @@ export const privacySections = [
   {
     title: "Security and children",
     body: [
-      "The website uses measures such as minimized fields, validation, security headers, server-side Formspree configuration, and separate concern routing. No internet service can promise absolute security, so avoid submitting unnecessary sensitive information.",
+      "The website uses measures such as minimized fields, validation, security headers, server-side form processing, and separate concern routing. No internet service can promise absolute security, so avoid submitting unnecessary sensitive information.",
       "This public website is not specifically designed to collect personal information from children. Program-specific eligibility rules may apply to an external or separately described activity.",
     ],
   },
@@ -125,15 +126,15 @@ export const cookieSections = [
   {
     title: "Analytics storage",
     body: [
-      "Google Analytics 4 is loaded only when a valid measurement ID is configured and you accept analytics. Before that choice, analytics storage, advertising storage, advertising user data, and advertising personalization are denied. Declining analytics keeps optional analytics storage denied.",
+      "Google Analytics 4 loads only after you accept analytics. Before that choice, analytics storage, advertising storage, advertising user data, and advertising personalization are denied. Declining analytics keeps optional analytics storage denied.",
       "Advertising-related consent remains denied even when analytics is accepted. ECL does not use the public website for personalized advertising.",
     ],
   },
   {
     title: "Google Analytics cookies",
     body: [
-      "When analytics is enabled with your permission, Google Analytics may set _ga to distinguish users for analytics and _ga_<measurement-id> to maintain session state. The exact measurement ID is not included here so this notice remains accurate when configuration changes.",
-      "Cookie duration depends on Google Analytics configuration and browser behavior. The public policy does not claim a specific analytics-retention period until the production setting has been confirmed.",
+      "When analytics is enabled with your permission, Google Analytics may set _ga to distinguish users for analytics and a related _ga_ cookie to maintain session state.",
+      "Cookie duration and analytics-data retention depend on Google Analytics, ECL account settings, and browser behavior. You can withdraw consent at any time through Cookie settings and can also delete stored cookies through your browser.",
     ],
   },
   {
@@ -144,5 +145,5 @@ export const cookieSections = [
     ],
   },
   { title: "External and separately operated services", body: ["Following a link to the Operational Hub or another external destination may place you under that service's own cookie and privacy practices. This notice covers ethicalcapacitylab.org and does not control unrelated websites."] },
-  { title: "Updates and contact", body: ["This notice may be updated when consent controls, analytics configuration, or website services change. Questions may be sent to ethicalcapacitylab@gmail.com."] },
+  { title: "Updates and contact", body: ["This notice may be updated when consent controls, analytics settings, or website services change. Questions may be sent to ethicalcapacitylab@gmail.com."] },
 ] as const;

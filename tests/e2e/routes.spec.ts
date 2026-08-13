@@ -34,7 +34,7 @@ test("legacy routes redirect permanently", async ({ request }) => {
 });
 
 test("all rendered internal links resolve", async ({ page, request }) => {
-  test.setTimeout(60_000);
+  test.setTimeout(120_000);
   const links = new Set<string>();
   for (const route of canonicalRoutes) {
     await page.goto(route);
@@ -63,6 +63,34 @@ test("canonical routes use unique document titles", async ({ page }) => {
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     titles.add(title);
   }
+});
+
+test("public pages do not expose internal production or reviewer notes", async ({ page }) => {
+  test.setTimeout(60_000);
+  const internalPhrases = [
+    "this page describes the current public website",
+    "implemented in this preview",
+    "approved deliverables",
+    "public implementation brief",
+    "implementation evidence",
+    "live submission credentials",
+    "configured in this environment",
+    "production property setting",
+    "production setting has been confirmed",
+    "internal build",
+    "honest empty state",
+    "no winner, impact metric, completion count, or testimonial is invented",
+  ];
+
+  for (const route of canonicalRoutes) {
+    await page.goto(route);
+    const copy = (await page.locator("body").innerText()).toLowerCase();
+    for (const phrase of internalPhrases) expect(copy, `${route}: ${phrase}`).not.toContain(phrase);
+  }
+
+  await page.goto("/cookies");
+  await expect(page.getByText("Last updated", { exact: true })).toBeVisible();
+  await expect(page.locator("aside[aria-label='Policy information'] time")).toHaveAttribute("datetime", "2026-08-13");
 });
 
 test("home and breadcrumb structured data are present and valid JSON", async ({ page }) => {

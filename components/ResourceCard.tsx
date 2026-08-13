@@ -13,7 +13,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         <dl className="resource-meta">
           <div><dt>By</dt><dd>{resource.owner}</dd></div>
           <div><dt>Updated</dt><dd>{resource.updated}</dd></div>
-          <div><dt>Source basis</dt><dd>{resource.source}</dd></div>
+          <div><dt>Based on</dt><dd>{resource.source}</dd></div>
           <div><dt>Limitations</dt><dd>{resource.limitations}</dd></div>
         </dl>
         <Link className="text-link" href={resource.nextHref}>{resource.nextLabel} <span aria-hidden="true">→</span></Link>

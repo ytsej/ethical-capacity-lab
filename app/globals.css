@@ -1207,33 +1207,42 @@ a:hover { text-decoration: none; }
   cursor: pointer;
 }
 .consent-dialog {
-  width: min(calc(100% - 2rem), 660px);
-  max-height: min(85vh, 760px);
-  padding: clamp(1.2rem, 4vw, 2rem);
+  width: min(calc(100% - 2rem), 480px);
+  max-height: calc(100dvh - 2rem);
+  padding: 1.5rem 1.625rem;
   overflow-y: auto;
   border: 1px solid var(--border);
   border-top: 5px solid var(--ecl);
   border-radius: var(--radius-md);
   color: var(--text);
   background: var(--surface);
-  box-shadow: 0 24px 70px rgba(20, 19, 17, .3);
+  box-shadow: 0 20px 52px rgba(20, 19, 17, .24);
 }
-.consent-dialog::backdrop { background: rgba(42, 40, 35, .58); }
+.consent-dialog::backdrop { background: rgba(42, 40, 35, .46); }
 .consent-dialog-header { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; }
-.consent-dialog-header h2 { margin-bottom: .4rem; }
-.dialog-close { min-width: 44px; min-height: 44px; border: 1px solid var(--border); border-radius: .25rem; color: var(--text); background: transparent; font-size: 1.6rem; cursor: pointer; }
-.consent-preference-row { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; margin-block: 1rem; padding: 1rem 0; border-block: 1px solid var(--border); }
-.consent-preference-row + .consent-preference-row { margin-top: -1rem; border-top: 0; }
-.consent-preference-row h3 { margin-bottom: .25rem; font-size: 1.15rem; }
-.consent-preference-row p { margin: 0; color: var(--text-2); font-size: .92rem; }
-.consent-preference-row strong { flex: 0 0 auto; color: var(--ecl-ink); }
-.consent-dialog-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; margin-block: 1.2rem; }
+.consent-dialog-header h2 { margin-bottom: .35rem; font-size: clamp(1.75rem, 3vw, 2.25rem); }
+.dialog-close { min-width: 44px; min-height: 44px; padding: 0; border: 1px solid var(--border); border-radius: .25rem; color: var(--text); background: transparent; font-size: 1.35rem; line-height: 1; cursor: pointer; }
+.consent-dialog > #consent-dialog-description { margin-bottom: .75rem; color: var(--text-2); font-size: .95rem; line-height: 1.5; }
+.consent-preference-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .25rem 1rem; align-items: start; margin: 0; padding: .8rem 0; border-top: 1px solid var(--border); }
+.consent-preference-row + .consent-preference-row { border-bottom: 1px solid var(--border); }
+.consent-preference-row h3 { margin-bottom: .18rem; font-size: 1.05rem; }
+.consent-preference-row p { margin: 0; color: var(--text-2); font-size: .88rem; line-height: 1.45; }
+.consent-preference-row strong { color: var(--ecl-ink); font-size: .84rem; line-height: 1.45; white-space: nowrap; }
+.consent-dialog-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-block: 1rem .75rem; }
+.consent-dialog-actions .consent-choice-button { min-height: 44px; padding-inline: 1.125rem; }
+.consent-dialog > p:last-child { margin-bottom: 0; font-size: .9rem; }
 
 @media (max-width: 700px) {
   .consent-banner { grid-template-columns: 1fr; max-height: calc(100vh - 2rem); overflow-y: auto; }
-  .consent-actions, .consent-dialog-actions { grid-template-columns: 1fr; }
+  .consent-actions { grid-template-columns: 1fr; }
   .consent-manage { grid-column: auto; }
-  .consent-preference-row { display: grid; }
+}
+
+@media (max-width: 480px) {
+  .consent-dialog { width: calc(100% - 1.5rem); max-height: calc(100dvh - 1.5rem); padding: 1.25rem; }
+  .consent-preference-row { grid-template-columns: 1fr; }
+  .consent-dialog-actions { display: grid; grid-template-columns: 1fr; }
+  .consent-dialog-actions .consent-choice-button { width: 100%; }
 }
 
 @media print {

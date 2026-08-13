@@ -68,7 +68,7 @@ export function SubmissionForm({ type, submissionAvailable }: { type: Submission
     }
   }
 
-  if (!submissionAvailable) return <aside className="form-unavailable" role="status"><h2>Submission is temporarily unavailable</h2><p>The Formspree connection is not configured in this environment, so this page will not pretend to receive your information.</p><p><Link className="text-link" href="/contact">Review the contact options</Link> or email <a href={`mailto:${site.email}`}>{site.email}</a> without sensitive information.</p></aside>;
+  if (!submissionAvailable) return <aside className="form-unavailable" role="status"><h2>Online submission is temporarily unavailable</h2><p>We cannot receive this form right now. Please use another contact option, and do not send sensitive information by email.</p><p><Link className="text-link" href="/contact">Review the contact options</Link> or email <a href={`mailto:${site.email}`}>{site.email}</a>.</p></aside>;
   if (status === "success") return <aside className="form-success" role="status" tabIndex={-1} ref={resultSummary}><h2>{resultTitle}</h2><p>{message}</p></aside>;
 
   const renderField = (field: FieldConfig) => <Field key={field.name} field={field} value={values[field.name] ?? (field.type === "checkbox" ? false : "")} error={errors[field.name]} onChange={(value) => updateField(field.name, value)} />;
