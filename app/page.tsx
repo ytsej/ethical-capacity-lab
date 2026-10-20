@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="container hero-home-grid">
           <div className="hero-home-copy">
             <p className="eyebrow">The Ethical Capacity Lab</p>
-            <h1>Turning good intentions into useful, responsible action.</h1>
+            <h1>Turning good intentions into <em>useful, responsible action.</em></h1>
             <p className="lede">
               The Ethical Capacity Lab brings together practical project support through DoGoodie and trusted relationship-building through the Liberation from Suffering Network, guided by shared standards and protections.
             </p>

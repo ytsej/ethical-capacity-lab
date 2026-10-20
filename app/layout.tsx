@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "@fontsource-variable/inter";
-import "@fontsource-variable/fraunces";
+import "@fontsource-variable/fraunces/full.css";
 import "./globals.css";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { AnalyticsInteractions } from "@/components/AnalyticsInteractions";
