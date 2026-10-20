@@ -27,7 +27,7 @@ test("components inherit context and semantic colors", async ({ page }) => {
   expect(await page.locator("#services").evaluate((element) => getComputedStyle(element).getPropertyValue("--context-primary").trim())).toBe("#33506b");
   expect(await uniqueColors(page.locator("#services .service-outputs li"))).toEqual(["rgb(231, 237, 241)"]);
   expect(await uniqueColors(page.locator(".homepage-process .client-process li > span"))).toEqual(["rgb(51, 80, 107)"]);
-  expect(await uniqueColors(page.locator(".homepage-trust .trust-grid article"), "::before")).toEqual(["rgb(225, 198, 142)"]);
+  expect(await page.locator(".homepage-trust .trust-grid .icon-tile").evaluateAll((elements) => [...new Set(elements.map((element) => getComputedStyle(element).color))])).toEqual(["rgb(230, 200, 138)"]);
   await expect(page.locator(".homepage-evidence .pill-pilot")).toHaveCount(1);
   await expect(page.locator(".homepage-evidence .pill-review")).toHaveCount(1);
 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { Logo } from "./Logo";
 import { ecosystemMenu, primaryNavigation, workMenu, type NavigationLink } from "@/content/navigation";
 
 const standalonePrimaryHrefs = new Set<string>(
@@ -100,8 +101,7 @@ export function Header() {
       <header className="site-header">
         <div className="header-inner">
           <Link className="brand" href="/" aria-label="The Ethical Capacity Lab home">
-            <span className="brand-mark" aria-hidden="true">ECL</span>
-            <span className="brand-name">The Ethical<br />Capacity Lab</span>
+            <Logo />
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             <DesktopDropdown label="Our Ecosystem" items={ecosystemMenu} />

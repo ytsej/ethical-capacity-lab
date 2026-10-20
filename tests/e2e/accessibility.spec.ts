@@ -1,6 +1,10 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+// Audit the settled page: with reduced motion nothing is hidden by scroll reveals or caught mid-fade,
+// so axe checks every element, including content below the fold.
+test.use({ reducedMotion: "reduce" });
+
 for (const route of ["/", "/start", "/organizations", "/challenges", "/contact", "/builders", "/liberation", "/liberation/how-it-works", "/partners", "/resources", "/privacy", "/terms", "/cookies", "/report-a-concern"]) {
   test(`axe reports no serious or critical issues on ${route}`, async ({ page }) => {
     await page.goto(route);
