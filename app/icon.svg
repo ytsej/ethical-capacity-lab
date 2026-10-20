@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
-  <title id="title">ECL</title>
-  <rect width="128" height="128" rx="16" fill="#2A2823"/>
-  <text x="64" y="78" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="700" fill="#FFFDF8">ECL</text>
+  <title id="title">The Ethical Capacity Lab</title>
+  <rect width="128" height="128" rx="28" fill="#F6F1E7"/>
+  <g transform="translate(16 14) scale(2)">
+    <path d="M23.2 25.5C14.8 25.6 9.6 20.2 9.4 11.6c8.6-.2 13.9 5.2 13.8 13.9Z" fill="#33506B"/>
+    <path d="M24.8 21.4c.1-9 5.6-14.6 14.5-14.6.1 9-5.5 14.6-14.5 14.6Z" fill="#4B5D3E"/>
+    <path d="M24 31V20.5" stroke="#2A2823" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M7.5 30.5h33c0 7.9-7.4 13-16.5 13s-16.5-5.1-16.5-13Z" fill="#A9762F"/>
+    <path d="M11 33.6h26" stroke="#F5E9D3" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".75"/>
+  </g>
 </svg>

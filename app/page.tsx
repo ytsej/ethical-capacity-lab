@@ -1,9 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import { AudiencePathCard } from "@/components/AudiencePathCard";
 import { OrganizationCallActions } from "@/components/OrganizationCallActions";
 import { ServiceGroups } from "@/components/ServiceGroups";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { IconTile, branchIcons, processIcons, trustIcons } from "@/components/icons";
+import { LogoMark } from "@/components/Logo";
 import {
   homepageAudiencePaths,
   homepageClientSteps,
@@ -22,6 +26,10 @@ export const metadata = pageMetadata(
   "/",
   { absoluteTitle: true },
 );
+
+const workArt: Record<string, { src: string; alt: string } | undefined> = {
+  "five-dollar-impact-hack": { src: "/dogoodie/impact-hack.jpg", alt: "The $5 Impact Hack campaign artwork" },
+};
 
 export default function HomePage() {
   const homepageSchema = {
@@ -49,14 +57,22 @@ export default function HomePage() {
       },
     ],
   };
+  const DoGoodieIcon = branchIcons.dogoodie;
+  const LiberationIcon = branchIcons.liberation;
+  const LabIcon = branchIcons.ecl;
 
   return (
     <div className="homepage">
       <JsonLd data={homepageSchema} />
       <section className="hero-home hero-home-client context-ecl">
+        <div className="hero-backdrop" aria-hidden="true">
+          <span className="hero-glow hero-glow-gold" />
+          <span className="hero-glow hero-glow-green" />
+          <LogoMark className="hero-watermark" />
+        </div>
         <div className="container hero-home-grid">
           <div className="hero-home-copy">
-            <p className="eyebrow">The Ethical Capacity Lab</p>
+            <p className="hero-kicker"><LogoMark /> <span>The Ethical Capacity Lab</span></p>
             <h1>Turning good intentions into <em>useful, responsible action.</em></h1>
             <p className="lede">
               The Ethical Capacity Lab brings together practical project support through DoGoodie and trusted relationship-building through the Liberation from Suffering Network, guided by shared standards and protections.
@@ -65,28 +81,42 @@ export default function HomePage() {
               Organizations can get practical help, builders can contribute their skills, and values-aligned people can learn, connect, and explore collaboration over time.
             </p>
             <div className="button-row">
-              <Link className="button" href="#services">See what we can do</Link>
+              <Link className="button" href="#services">See what we can do <ArrowRight aria-hidden="true" strokeWidth={2} /></Link>
               <Link className="button button-secondary" href="/start">Find your path</Link>
             </div>
+            <ul className="hero-promises" aria-label="Three promises behind the work">
+              {homepageTrustCommitments.map((commitment) => (
+                <li key={commitment.title}><Check aria-hidden="true" strokeWidth={2.5} />{commitment.title}</li>
+              ))}
+            </ul>
           </div>
           <aside className="ecosystem-hero-visual" aria-label="Ethical Capacity Lab ecosystem roles">
             <p className="eyebrow">One ecosystem, distinct roles</p>
-            <div className="ecosystem-hero-foundation">
-              <span>Shared foundation</span>
-              <h2>The Ethical Capacity Lab</h2>
-              <p>Shared standards and protections</p>
-            </div>
             <div className="ecosystem-hero-branches">
               <article className="tone-dogoodie">
+                <IconTile icon={DoGoodieIcon} tone="dogoodie" />
                 <span>Practical work</span>
                 <h3>DoGoodie</h3>
                 <p>Practical work and organizational support</p>
               </article>
               <article className="tone-liberation">
+                <IconTile icon={LiberationIcon} tone="liberation" />
                 <span>Relationship network</span>
                 <h3>Liberation Network</h3>
                 <p>Trusted relationships and gradual collaboration</p>
               </article>
+            </div>
+            <svg className="ecosystem-hero-stems" viewBox="0 0 400 64" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M200 64 C200 30 100 34 100 0" />
+              <path d="M200 64 C200 30 300 34 300 0" />
+            </svg>
+            <div className="ecosystem-hero-foundation">
+              <IconTile icon={LabIcon} tone="ecl" size="lg" />
+              <div>
+                <span>Shared foundation</span>
+                <h2>The Ethical Capacity Lab</h2>
+                <p>Shared standards and protections</p>
+              </div>
             </div>
           </aside>
         </div>
@@ -104,13 +134,16 @@ export default function HomePage() {
         <p className="section-footnote">Every request is reviewed for suitability, safety, what the work would include, and whether the right people and time are available. A service group does not guarantee acceptance or a particular result.</p>
       </Section>
 
-      <Section className="homepage-challenge" surface="default" context="dogoodie" tight eyebrow="For organizations" title="Have a specific challenge?">
+      <Section className="homepage-challenge" surface="default" context="dogoodie" tight>
         <div className="client-cta-panel">
-          <div>
+          <div className="client-cta-copy">
+            <p className="eyebrow">For organizations</p>
+            <h2>Have a specific challenge?</h2>
             <p className="lede">If you represent an organization and have a real problem, project, workflow, or idea you want to explore, request a 30-minute consultation.</p>
             <p>The request opens in the Operations Hub, where consultation details are recorded. A consultation is for clarification and fit—not open-ended consulting or a promise of work.</p>
           </div>
           <OrganizationCallActions />
+          <LogoMark className="client-cta-mark" />
         </div>
       </Section>
 
@@ -125,9 +158,11 @@ export default function HomePage() {
         <div className="ecosystem-summary-grid">
           {homepageEcosystemParts.map((part) => (
             <article className={`ecosystem-summary tone-${part.tone}`} key={part.id}>
+              <IconTile icon={branchIcons[part.tone]} tone={part.tone} size="lg" />
               <p className="eyebrow">{part.label}</p>
               <h3>{part.title}</h3>
               <p>{part.description}</p>
+              <Link className="text-link" href={part.href}>{part.cta} <span aria-hidden="true">→</span></Link>
             </article>
           ))}
         </div>
@@ -150,12 +185,16 @@ export default function HomePage() {
 
       <Section className="homepage-process" surface="dogoodie" context="dogoodie" eyebrow="A simple first step" title="How working with us can begin">
         <ol className="client-process">
-          {homepageClientSteps.map((step, index) => (
-            <li key={step.title}>
-              <span aria-hidden="true">{index + 1}</span>
-              <div><h3>{step.title}</h3><p>{step.text}</p></div>
-            </li>
-          ))}
+          {homepageClientSteps.map((step, index) => {
+            const StepIcon = processIcons[index];
+            return (
+              <li key={step.title}>
+                <span aria-hidden="true">{index + 1}</span>
+                <StepIcon className="client-process-icon" aria-hidden="true" strokeWidth={1.5} />
+                <div><h3>{step.title}</h3><p>{step.text}</p></div>
+              </li>
+            );
+          })}
         </ol>
         <p className="process-boundary">Contacting us does not guarantee acceptance, work, funding, or a continuing engagement.</p>
       </Section>
@@ -170,8 +209,12 @@ export default function HomePage() {
       >
         <div className="trust-panel trust-panel-compact">
           <div className="trust-grid">
-            {homepageTrustCommitments.map((commitment) => (
-              <article key={commitment.title}><h3>{commitment.title}</h3><p>{commitment.text}</p></article>
+            {homepageTrustCommitments.map((commitment, index) => (
+              <article key={commitment.title}>
+                <IconTile icon={trustIcons[index]} tone="dark" />
+                <h3>{commitment.title}</h3>
+                <p>{commitment.text}</p>
+              </article>
             ))}
           </div>
           <nav className="trust-links" aria-label="Trust and safety pages">
@@ -184,15 +227,31 @@ export default function HomePage() {
 
       <Section className="homepage-evidence" surface="warm" context="ecl" eyebrow="Work and evidence" title="See the work behind the idea" intro="We show current work honestly and separate real outputs from claims that are not yet proven.">
         <div className="evidence-grid evidence-grid-compact">
-          {workItems.map((item) => (
-            <article className="evidence-card" key={item.slug}>
-              <StatusPill label={item.displayStatus} tone={item.displayStatus === "Pilot" ? "pilot" : "review"} />
-              <h3>{item.title}</h3>
-              <p><strong>Output:</strong> {item.output}</p>
-              <p className="evidence-limitation"><strong>Current limitation:</strong> {item.limitations}</p>
-              <Link className="text-link" href={item.href}>Review {item.title} <span aria-hidden="true">→</span></Link>
-            </article>
-          ))}
+          {workItems.map((item) => {
+            const art = workArt[item.slug];
+            return (
+              <article className="evidence-card" key={item.slug}>
+                <div className={`evidence-media ${art ? "" : "evidence-media-diagram"}`} data-reveal="clip">
+                  {art ? (
+                    <Image src={art.src} alt={art.alt} width={800} height={800} sizes="(max-width: 800px) 100vw, 600px" />
+                  ) : (
+                    <div className="evidence-diagram" aria-hidden="true">
+                      <span className="tone-ecl"><LabIcon strokeWidth={1.5} /></span>
+                      <span className="tone-dogoodie"><DoGoodieIcon strokeWidth={1.5} /></span>
+                      <span className="tone-liberation"><LiberationIcon strokeWidth={1.5} /></span>
+                    </div>
+                  )}
+                </div>
+                <div className="evidence-body">
+                  <StatusPill label={item.displayStatus} tone={item.displayStatus === "Pilot" ? "pilot" : "review"} />
+                  <h3>{item.title}</h3>
+                  <p><strong>Output:</strong> {item.output}</p>
+                  <p className="evidence-limitation"><strong>Current limitation:</strong> {item.limitations}</p>
+                  <Link className="text-link" href={item.href}>Review {item.title} <span aria-hidden="true">→</span></Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
         <p className="empty-evidence">Reviewed client work will be added after the client gives permission to publish it.</p>
         <div className="stage-statement stage-statement-compact">
@@ -201,8 +260,11 @@ export default function HomePage() {
         <div className="button-row"><Link className="button button-secondary" href="/work">View work and case studies</Link></div>
       </Section>
 
-      <Section surface="default" context="dogoodie" tight eyebrow="A clear next step" title="Need help with a real project or challenge?">
+      <Section className="homepage-final" surface="default" context="dogoodie" tight>
         <div className="final-cta">
+          <LogoMark className="final-cta-mark" />
+          <p className="eyebrow">A clear next step</p>
+          <h2>Need help with a real project or challenge?</h2>
           <p className="lede">Tell us what you are trying to solve. We will review the request and explain the most useful available next step.</p>
           <OrganizationCallActions secondaryHref="/start" secondaryLabel="Not sure where you fit? Start here" />
         </div>

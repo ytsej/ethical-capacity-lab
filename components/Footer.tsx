@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CookieSettingsButton } from "./CookieSettingsButton";
+import { Logo } from "./Logo";
 import { footerGroups } from "@/content/navigation";
 import { currentStage } from "@/content/site";
 
@@ -8,8 +9,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-intro">
         <div>
-          <span className="brand-mark footer-mark" aria-hidden="true">ECL</span>
-          <p className="footer-name">The Ethical Capacity Lab</p>
+          <Logo tone="dark" />
+          <p className="footer-name">Build the capacity behind meaningful work.</p>
         </div>
         <p>{currentStage}</p>
       </div>

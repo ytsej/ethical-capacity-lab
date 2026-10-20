@@ -7,6 +7,7 @@ import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { AnalyticsInteractions } from "@/components/AnalyticsInteractions";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { isSearchIndexingEnabled, site } from "@/content/site";
 
 const socialImage = {
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
+        <RevealOnScroll />
         <AnalyticsInteractions />
         <AnalyticsConsent measurementId={measurementId} />
       </body>
